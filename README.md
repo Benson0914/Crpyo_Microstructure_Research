@@ -1,20 +1,20 @@
 # Crypto Market Microstructure Research
 An empirical study of crypto order book imbalance, short-horizon return prediction, regime persistence, and execution feasibility using Binance order book data.
 
-# **1. Research Motivation**
+# **🏆1. Research Motivation**
 
 This project investigates whether short-horizon order book imbalance contains statistically meaningful predictive information about future mid-price movements and market state persistence in crypto markets.
 
 Rather than relying on global correlations, the research focuses on conditional market regimes, persistence dynamics, and execution feasibility under transaction costs.
 
-# **2. Research Questions**
+# **💡2. Research Questions**
 - Does order book imbalance predict short-horizon future returns?
 - Does volatility affect imbalance persistence?
 - How long does imbalance memory survive?
 - Are observed patterns statistically significant or random noise?
 - Can statistical edge survive realistic transaction costs?
 
-# **3. Data**
+# **📈3. Data**
 |  | Research Data Set  | Testing Data Set |
 | -------- | ------------- | ------------- |
 | File | BTCUSDT_log_longhour.csv | BTCUSDT_orderbook_v2.csv |
@@ -25,7 +25,7 @@ Rather than relying on global correlations, the research focuses on conditional 
 | Observations | 2000+ snapshots | 4000+ snapshots |
 | Data Source | ccxt API | ccxt API |
 
-# **4. Feature Engineering**
+# **💾4. Feature Engineering**
 
 ### **Mid Price**
 
@@ -42,15 +42,13 @@ Rather than relying on global correlations, the research focuses on conditional 
 ## $Return_{t+h} = \frac{MidPrice_{t+h} - MidPrice_t}{MidPrice_t}$
 
 
-# **Rolling Autocorrelation**
-
-### Rolling Memory
+### **Rolling Autocorrelation**
 
 Rolling autocorrelation was used to estimate short-horizon persistence of imbalance states.
 
 No need complicated formula here.
 
-# **5. Methodology**
+# **🚀5. Methodology**
 ## **Regime Segmentation**
 
 The imbalance signal was discretized into five conditional regimes:
@@ -61,15 +59,15 @@ The imbalance signal was discretized into five conditional regimes:
 - Weak Buy [0.2, 0.6]
 - Extreme Buy [0.6, 1.0]
 
-# **Volatility Conditioning**
+## **Volatility Conditioning**
 
 Market states were further segmented into high-volatility and low-volatility environments to examine persistence breakdown during turbulent conditions.
 
-# **Alpha Decay**
+## **Alpha Decay**
 
 Autocorrelation decay profiles were computed to estimate signal memory and execution horizons.
 
-# **Statistical Validation**
+## **Statistical Validation**
 
 The following statistical methods were applied:
 
@@ -77,7 +75,7 @@ The following statistical methods were applied:
 - Mutual Information Analysis
 - Bootstrap Resampling
 
-# **6. Key Findings**
+# **🏁6. Key Findings**
 
 ## Conditional Return Structure
 
@@ -104,7 +102,7 @@ Distribution of Streak Durations within 12 seconds when Imbalance Score > 0.6
 ![alt text](Figures/Streak_Durations.png "Streak_Durations")
 
 
-# **7. Statistical Results**
+# **📈7. Statistical Results**
 
 ## Statistical Validation
 
@@ -120,7 +118,7 @@ Result:
 - Imbalance →  Future Return Information Link:  0.0759
 - Volatility → Future Return Information Link: 0.3024
 
-# **8. Backtest & Execution Reality**
+# **💸8. Backtest & Execution Reality**
 
 ## Trading Feasibility
 
@@ -141,7 +139,7 @@ Although statistically significant directional structure was detected, the strat
 ** > Statistical predictability does not necessarily imply executable alpha after fees and turnover. **
 
 
-# **9. Limitations**
+# **⚠️9. Limitations**
 
 ## Limitations
 
@@ -152,7 +150,7 @@ Although statistically significant directional structure was detected, the strat
 - No latency-aware execution engine
 - No cross-exchange liquidity analysis
 
-# **10. Future Work**
+# **⏱️10. Future Work**
 
 ## Future Work
 
