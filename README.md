@@ -1,103 +1,45 @@
 # Crypto Market Microstructure Research
-
-Then 2-3 lines:
-
 An empirical study of crypto order book imbalance, short-horizon return prediction, regime persistence, and execution feasibility using Binance order book data.
 
 # **1. Research Motivation**
 
-Short paragraph.
-
-Example:
-
-This project investigates whether short-horizon order book imbalance contains statistically meaningful predictive information about future mid-price movements in crypto markets.
+This project investigates whether short-horizon order book imbalance contains statistically meaningful predictive information about future mid-price movements and market state persistence in crypto markets.
 
 Rather than relying on global correlations, the research focuses on conditional market regimes, persistence dynamics, and execution feasibility under transaction costs.
 
-Professional and clean.
-
 # **2. Research Questions**
-
-VERY IMPORTANT SECTION.
-
-Use bullets.
-
-## Research Questions
-
 - Does order book imbalance predict short-horizon future returns?
 - Does volatility affect imbalance persistence?
 - How long does imbalance memory survive?
 - Are observed patterns statistically significant or random noise?
 - Can statistical edge survive realistic transaction costs?
 
-This instantly makes project look serious.
-
 # **3. Data**
-
-Example:
-
-## Data
-
-- Exchange: Binance
-- Asset: BTCUSDT Perpetual
-- Frequency: 5-second order book snapshots
-- Duration: ~6 hours
-- Observations: 4000+ snapshots
-- Data Source: ccxt API
+|  | Research Data Set  | Testing Data Set |
+| -------- | ------------- | ------------- |
+| Exchange | Binance | Binance |
+| Asset | BTCUSDT Perpetual | BTCUSDT Perpetual |
+| Frequency | 5-second order book snapshots | 5-second order book snapshots |
+| Duration | ~3 hours | ~6 hours |
+| Observations | 2000+ snapshots | 4000+ snapshots |
+| Data Source | ccxt API | ccxt API |
 
 # **4. Feature Engineering**
 
-THIS SECTION IS IMPORTANT.
+### **Mid Price**
 
-Now introduce formulas.
 
-YES you should include formulas.
-
-This makes it feel quantitative.
-
-# **Mid Price**
-
-### Mid Price
-
-\[
-
-MidPrice*_t = \frac{BestBid_*t + BestAsk*_t}{2}*
-
-*\]*
-
-# **Imbalance Score**
-
-VERY IMPORTANT.
+## $Mid Price = \frac{P_{bids}*Q_{bids}+P_{asks}*Q_{asks}}{Q_{bids}+Q_{asks}}$
 
 ### Order Book Imbalance
-
-\[
-
-Imbalance*_t =*
-
-*\frac{BidDepth_*t - AskDepth*_t}*
-
-*{BidDepth_*t + AskDepth*_t}*
-
-*\]*
+## $Imbalance Score = \frac{BidDepth_{t}-AskDepth_{t}}{BidDepth{t}+AskDepth_{t}}$
 
 *Values near +1 indicate dominant bid-side pressure, while values near -1 indicate dominant ask-side pressure.*
 
-VERY GOOD.
-
-# **Future Return**
-
 ### Forward Return
 
-\[
+## $Return_{t+h} = \frac{MidPrice_{t+h} - MidPrice_t}{MidPrice_t}$
 
-Return*_{t+h} =*
-
-*\frac{MidPrice_*{t+h} - MidPrice*_t}*
-
-*{MidPrice_*t}
-
-\]
 
 # **Rolling Autocorrelation**
 
@@ -150,6 +92,7 @@ Use image markdown normally.
 # **Example**
 
 ## Conditional Return Structure
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
 Extreme imbalance states showed monotonic directional drift in future short-horizon returns.
 
